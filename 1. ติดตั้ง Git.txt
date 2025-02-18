@@ -1,0 +1,157 @@
+1. ติดตั้ง Git
+Windows
+ดาวน์โหลด Git for Windows จาก https://git-scm.com/downloads
+ติดตั้งโดยใช้ค่าเริ่มต้นทั้งหมด
+เปิด Git Bash เพื่อเริ่มใช้งาน
+Mac
+เปิด Terminal แล้วพิมพ์คำสั่ง:
+bash
+Copy
+Edit
+git --version
+ถ้ามี Git อยู่แล้วจะขึ้นเวอร์ชัน ถ้าไม่มีให้ติดตั้งโดยใช้:
+bash
+Copy
+Edit
+brew install git
+(ต้องมี Homebrew ก่อน ถ้ายังไม่มีให้ติดตั้งจาก https://brew.sh/)
+Linux (Ubuntu/Debian)
+ติดตั้งโดยใช้คำสั่ง:
+bash
+Copy
+Edit
+sudo apt update
+sudo apt install git
+2. ตั้งค่า Git ครั้งแรก
+หลังจากติดตั้งแล้ว ต้องตั้งค่าชื่อและอีเมลก่อนใช้งาน:
+
+bash
+Copy
+Edit
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+เช็คค่าที่ตั้งไว้:
+
+bash
+Copy
+Edit
+git config --list
+3. เริ่มต้นใช้งาน Git
+สร้าง Repository ใหม่
+สร้างโฟลเดอร์โปรเจคของคุณ:
+bash
+Copy
+Edit
+mkdir my-project
+cd my-project
+เริ่มต้น Git repository:
+bash
+Copy
+Edit
+git init
+ระบบจะสร้างโฟลเดอร์ .git เพื่อเก็บข้อมูลเวอร์ชัน
+4. การใช้งานพื้นฐานของ Git
+เช็คสถานะไฟล์
+bash
+Copy
+Edit
+git status
+จะแสดงไฟล์ที่ยังไม่ได้ถูกติดตาม (untracked) หรือไฟล์ที่มีการเปลี่ยนแปลง
+
+เพิ่มไฟล์ไปยัง Git (Staging)
+bash
+Copy
+Edit
+git add ชื่อไฟล์
+หรือเพิ่มทั้งหมด:
+
+bash
+Copy
+Edit
+git add .
+บันทึกการเปลี่ยนแปลง (Commit)
+bash
+Copy
+Edit
+git commit -m "ข้อความอธิบายการเปลี่ยนแปลง"
+ดูประวัติการ commit
+bash
+Copy
+Edit
+git log --oneline
+5. การทำงานร่วมกับ GitHub
+สร้าง Repository บน GitHub
+ไปที่ GitHub แล้วสร้าง New Repository
+คัดลอก URL ของ repo เช่น https://github.com/yourname/my-project.git
+เชื่อมต่อ Repository กับ GitHub
+ในโฟลเดอร์โปรเจค พิมพ์:
+
+bash
+Copy
+Edit
+git remote add origin https://github.com/yourname/my-project.git
+อัปโหลดโค้ดไปยัง GitHub
+bash
+Copy
+Edit
+git push -u origin main
+(ถ้าใช้ master ให้เปลี่ยน main เป็น master)
+
+6. การดึงโค้ดจาก GitHub
+bash
+Copy
+Edit
+git pull origin main
+(ใช้ main หรือ master ตามที่ repo ของคุณใช้)
+
+7. การสร้างและใช้ Branch
+สร้าง Branch ใหม่
+bash
+Copy
+Edit
+git branch new-feature
+สลับไปใช้ Branch
+bash
+Copy
+Edit
+git checkout new-feature
+หรือใช้คำสั่งย่อ:
+
+bash
+Copy
+Edit
+git switch new-feature
+รวม Branch (Merge)
+bash
+Copy
+Edit
+git checkout main
+git merge new-feature
+จากนั้นให้ push ไปยัง GitHub:
+
+bash
+Copy
+Edit
+git push origin main
+8. คำสั่งอื่นๆ ที่ควรรู้
+ดูรายการ Branch ทั้งหมด
+bash
+Copy
+Edit
+git branch
+ลบ Branch
+bash
+Copy
+Edit
+git branch -d ชื่อ-branch
+ดูการเปลี่ยนแปลงของไฟล์
+bash
+Copy
+Edit
+git diff
+ย้อนกลับไป Commit ก่อนหน้า
+bash
+Copy
+Edit
+git reset --hard HEAD~1
+(หมายเหตุ: คำสั่งนี้จะลบการเปลี่ยนแปลงล่าสุดออกไป)
